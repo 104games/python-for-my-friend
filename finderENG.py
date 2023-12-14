@@ -58,6 +58,10 @@ while continua == "yes":
                         riassunto[y.replace("\n","")] += 1
                     else:
                         riassunto[y.replace("\n","")] = 1
+                    if y.replace("\n","") in riassunto2:
+                        riassunto2[y.replace("\n","")] += " / " + valv[x] + " " + valv[x+1]
+                    else:
+                        riassunto2[y.replace("\n","")] = valv[x] + " " + valv[x+1]
                     print("the file " + valv[x] + " has " + z.replace("\n","") + " in common with " + valv[x+1] + "\n")
         
 
