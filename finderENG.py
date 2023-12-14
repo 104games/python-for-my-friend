@@ -49,6 +49,7 @@ while continua == "yes":
         valv.append(vuoto)
 
     riassunto = {}
+    riassunto2 = {}
     #this does the actual comparision and prints results
     for x in range(len(elementi)-1):
         for y in elementi[x]:
@@ -59,9 +60,11 @@ while continua == "yes":
                     else:
                         riassunto[y.replace("\n","")] = 1
                     if y.replace("\n","") in riassunto2:
-                        riassunto2[y.replace("\n","")] += " / " + valv[x] + " " + valv[x+1]
+                        riassunto2[y.replace("\n","")] = riassunto2[y.replace("\n","")].replace(valv[x] + "\n","")
+                        riassunto2[y.replace("\n","")] = riassunto2[y.replace("\n","")].replace(valv[x+1]+ "\n","")
+                        riassunto2[y.replace("\n","")] +=  valv[x] + "\n" +"     " + valv[x+1] + "\n"
                     else:
-                        riassunto2[y.replace("\n","")] = valv[x] + " " + valv[x+1]
+                        riassunto2[y.replace("\n","")] = valv[x] + "\n" + "     " + valv[x+1] + "\n"
                     print("the file " + valv[x] + " has " + z.replace("\n","") + " in common with " + valv[x+1] + "\n")
         
 
@@ -69,6 +72,10 @@ while continua == "yes":
     print("summary: code/times \n")
     for x in riassunto:
         print(x + " = " +str(riassunto[x])+"\n")
+
+    for x in riassunto2:
+        print(x + ":")
+        print("     " + riassunto2[x])
 
     print("\n continue? (yes/no) \n")
     continua = input()

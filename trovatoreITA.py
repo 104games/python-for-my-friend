@@ -3,7 +3,7 @@ import glob
 continua = "si"
 
 while continua == "si":
-    #scegliere la cartella
+#scegliere la cartella
     print("\n")
     presente = False
     while presente == False:
@@ -49,6 +49,7 @@ while continua == "si":
         valv.append(vuoto)
 
     riassunto = {}
+    riassunto2 = {}
     #questo effettivamente trova i codici uguali
     for x in range(len(elementi)-1):
         for y in elementi[x]:
@@ -59,9 +60,11 @@ while continua == "si":
                     else:
                         riassunto[y.replace("\n","")] = 1
                     if y.replace("\n","") in riassunto2:
-                        riassunto2[y.replace("\n","")] += " / " + valv[x] + " " + valv[x+1]
+                        riassunto2[y.replace("\n","")] = riassunto2[y.replace("\n","")].replace(valv[x] + "\n","")
+                        riassunto2[y.replace("\n","")] = riassunto2[y.replace("\n","")].replace(valv[x+1]+ "\n","")
+                        riassunto2[y.replace("\n","")] +=  valv[x] + "\n" +"     " + valv[x+1] + "\n"
                     else:
-                        riassunto2[y.replace("\n","")] = valv[x] + " " + valv[x+1]
+                        riassunto2[y.replace("\n","")] = valv[x] + "\n" + "     " + valv[x+1] + "\n"
                     print("il file " + valv[x] + " ha " + z.replace("\n","") + " in comune con " + valv[x+1] + "\n")
         
 
@@ -69,7 +72,13 @@ while continua == "si":
     print("riassunto: codice/volte \n")
     for x in riassunto:
         print(x + " = " +str(riassunto[x])+"\n")
+        
+    for x in riassunto2:
+        print(x + ":")
+        print("     " + riassunto2[x])
 
     print("\n vuoi continuare? (si/no) \n")
     continua = input()
+    
+
     
