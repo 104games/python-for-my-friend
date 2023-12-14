@@ -71,8 +71,10 @@ while continua == "si":
     #scrive il riassunto
     print("riassunto: codice/volte \n")
     for x in riassunto:
-        print(x + " = " +str(riassunto[x])+"\n")
+        print(x + " = " +str(riassunto[x]+1))
         
+        
+    print("\n")
     for x in riassunto2:
         print(x + ":")
         print("     " + riassunto2[x])
