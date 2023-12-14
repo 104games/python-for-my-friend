@@ -58,6 +58,10 @@ while continua == "si":
                         riassunto[y.replace("\n","")] += 1
                     else:
                         riassunto[y.replace("\n","")] = 1
+                    if y.replace("\n","") in riassunto2:
+                        riassunto2[y.replace("\n","")] += " / " + valv[x] + " " + valv[x+1]
+                    else:
+                        riassunto2[y.replace("\n","")] = valv[x] + " " + valv[x+1]
                     print("il file " + valv[x] + " ha " + z.replace("\n","") + " in comune con " + valv[x+1] + "\n")
         
 
