@@ -19,7 +19,7 @@ def nomi(nomiFILE):
     return finito
 
 
-if continua == "si":
+while continua == "si":
 #scegliere la cartella
     print("che modalità vuoi usare? \n \n 1:")
     print("     resoconto di TUTTI i codici in comune \n     tra tutti quelle delle cartelle \n \n 2:")
@@ -28,7 +28,7 @@ if continua == "si":
     while not mod == "1" and not mod == "2":
         print("non hai insterito una modalità valida!")
         mod = input()
-    while mod == "1":
+    if mod == "1":
         print("\n")
         presente = False
         while presente == False:
